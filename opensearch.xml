@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
+    <ShortName>Critiques</ShortName>
+    <Description>La base de donnees critiques d art recense les critiques francais entre 1880 et 1920</Description>
+    <Image height="32" width="32" type="image/png">http://labexcap.fr/wp-content/themes/labex-cap/img/favicons/favicon-32x32.png</Image>
+	<Url type="application/x-suggestions+json" method="GET" template="http://critiquesdart.univ-paris1.fr/suggest_opensearch_paris1.php">
+		<Param name="term" value="{searchTerms}"/>
+	</Url>
+    <Url type="text/html" method="GET" template="http://critiquesdart.univ-paris1.fr/rechercher.php?quicksearch={searchTerms}" />
+    <Language>fr</Language>
+    <AdultContent>false</AdultContent>
+    <Developer>INHA, Labex CAP</Developer>
+    <Contact>critiques@univ-paris1.fr</Contact>
+</OpenSearchDescription>
