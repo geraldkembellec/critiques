@@ -1,32 +1,29 @@
 <?php
-		session_start();
-		include 'config.php';
-		include 'lib_fonctions.php';
-		include 'html_habillage.php';
-		echo $entete;
-		echo $debut_container;
-		echo $debut_header;
-		if(isset($_SESSION['user'])){
-        	echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a>
-						<span class=\"label\">Se deconnecter</span>"; 
-		}
-		else{
-			echo "<a href=\"connectV2.php\" class=\"icon-person\"></a>
-						<span class=\"label\">
-                        S’identifier</span>";
-		}
-		echo $suite_header;
-		milieu_header();
-	    echo $fin_header;
-		echo $debut_main;
-		echo $debut_article;
-		
-		///
-		?>
+	error_reporting (0);
+	
+	session_start();
+	include 'config.php';
+	include 'lib_fonctions.php';
+	include 'html_habillage.php';
+	echo $entete;
+	echo $debut_container;
+	echo $debut_header;
+	if(isset($_SESSION['user'])){
+		echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a></div>";
+	} else {
+		echo "<a href=\"connectV2.php\" class=\"icon-person\" title=\"S’identifier\"></a></div>";
+	}
+	milieu_header();
+	echo $fin_header;
+	echo $debut_main;
+	echo $debut_article;
+	
+	///
+?>
         <form id="simple" action="simple.php" method="get">
          <h2>Recherche simple / <a href="javascript:recherche_avancee();">Recherche avancée</a></h2>
          <br />
-        <fieldset>
+        <fieldset style="margin-top: 10px;">
 		 <p>
         	<label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Champ unique</label>
             <input list="quicksearch" name="quicksearch" size="55" maxlength="255" autocomplete='off' required >
@@ -41,11 +38,12 @@
 		 </p>
          </fieldset>
        	<input type="submit" name="button" id="button" value="Lancer la recherche" />
+		<input type="reset" name="raz" id="raz" value="Réinilialiser la requête" style="margin-top: 10px;" />
        </form>
  		<form id="avancee" style="visibility: hidden; display:none;" action="avance.php" method="get">
  			<h2><a href="javascript:recherche_simple();">Recherche simple</a> / Recherche avancée</h2>        
           <!-- Si vous n'avez qu'un auteur à selectionner; cliquez <a href="javascript:mono()">ici</a>) -->
-          <fieldset>
+          <fieldset style="margin-top: 10px;">
        		<legend>Rechercher dans le titre ou le complément de titre de la critique</legend>
           <p><label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Chercher un mot ou un groupe de mots</label>
           <input name="Titre_SousTitre" type="text" size="35" maxlength="100" /></p>
@@ -60,7 +58,7 @@
               <!--
                
               -->
-              <fieldset>
+              <fieldset style="margin-top: 10px;">
               <legend>Sur le critique</legend>
             <label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Choisir un critique (laisser vide pour ne pas spécifier)</label>
           <select name="auteur" id="auteurs">
@@ -74,7 +72,7 @@
         <select name="type">
             <option label="vide"></option>
             <option value="certifie">Auteur certifié</option>
-            <option value="attribue">Attribué à l'auteur</option>
+            <option value="attribue">Attribué àl'auteur</option>
         </select>
         </p>
         <p>
@@ -96,7 +94,7 @@
         	<input name="anneeEditionMin" type="text" size="4" maxlength="4" /> et <input name="anneeEditionMax" type="text" size="4" maxlength="4" />
      	</p> 
      </fieldset>
-  	 <fieldset>
+  	 <fieldset style="margin-top: 10px;">
        <legend>Aide à la recherche d'ouvrage ou de revue</legend>
         <p>
         <label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Type de critique<br /> (laisser vide pour ne pas spécifier)</label>
@@ -138,10 +136,12 @@
         </div>
   </fieldset>
 <script>
+
 function raz() {
 	//alert('tester');
 	document.getElementById('raz').value="true";
 }
+
 function avance(){
 	// Selecteur de formulaire
 	switch (document.forms.avancee.typeCritique.selectedIndex) {
@@ -191,54 +191,60 @@ function avance(){
 		break;
 	}
 }
+
 </script>
        <input type="submit" value="Lancer la recherche" />
-        </form>
-<br />
-        <?php
-			if($_GET['raz']=='true'){
-				unset($_GET);
-			}
-			if(isset($_GET['quicksearch']) && sizeof($_GET)>0 && $_GET['raz']!='true')
-			{
-					print('<h2>Résultats</h2><div id="resultat"><pre>');
-					$idAuteur=rechercherIdAuteurByPrenom_NOM($_GET['quicksearch']);
-					if($idAuteur!=''){
-						//print_r($_GET);
-						//rechercherIdAuteurByPrenom_NOM($_GET['Titre']));
-						print("Votre recherche semble porter sur un critique d'art : ");
-						//echo $idAuteur;
-						afficherAuteurById($idAuteur);
-					}
-					$idRevue=revue_id_sans_date($_GET['quicksearch']);
-					if($idRevue!=''){
-						//print_r($_GET);
-						//rechercherIdAuteurByPrenom_NOM($_GET['Titre']));
-						print("Votre recherche semble porter sur une revue : ");
-						print("<a href='avance.php?Titre_SousTitre=&choix=choix_sous_titre_et_titre&auteur=&type=&typeSignature=&pseudonyme=&anneeEditionMin=&anneeEditionMax=&typeCritique=article&revue=");
-						print(get_revue_by_id_sans_date($idRevue));
-						print("'>");
-						afficher_revue_by($idRevue);
-						print("</a>");
-						//echo $idAuteur;
-						//afficherAuteurById($idAuteur);
-					}
-					elseif($idRevue='' && $idAuteur=''){
-						echo "Pas de résultat, veuillez tenter une recherche avancée ou réinitialiser la requête";
-						//print_r($_GET);
-					}
-					print('</pre></div>');
-				}
-		?>
-        <form>
-    		<button id="raz" name="raz" value="true">Réinilialiser la requête</button>
-		</form>
+       <input type="reset" name="raz" id="raz" value="Réinilialiser la requête" style="margin-top: 10px;" />
+  	</form>
+	<br />
+	
+<?php
+	if($_GET['raz']=='true'){
+		unset($_GET);
+	}
+
+	if(isset($_GET['quicksearch']) && sizeof($_GET)>0 && $_GET['raz']!='true')
+	{
+		print('<h2>Résultats</h2><div id="resultat"><pre>');
+		$idAuteur=rechercherIdAuteurByPrenom_NOM($_GET['quicksearch']);
+		if($idAuteur!=''){
+			//print_r($_GET);
+			//rechercherIdAuteurByPrenom_NOM($_GET['Titre']));
+			print("Votre recherche semble porter sur un critique d'art : ");
+			//echo $idAuteur;
+			afficherAuteurById($idAuteur);
+		}
+
+
+		$idRevue=revue_id_sans_date($_GET['quicksearch']);
+		if($idRevue!=''){
+			//print_r($_GET);
+			//rechercherIdAuteurByPrenom_NOM($_GET['Titre']));
+			print("Votre recherche semble porter sur une revue : ");
+			print("<a href='avance.php?Titre_SousTitre=&choix=choix_sous_titre_et_titre&auteur=&type=&typeSignature=&pseudonyme=&anneeEditionMin=&anneeEditionMax=&typeCritique=article&revue=");
+			print(get_revue_by_id_sans_date($idRevue));
+			print("'>");
+			afficher_revue_by($idRevue);
+			print("</a>");
+			//echo $idAuteur;
+			//afficherAuteurById($idAuteur);
+		} elseif($idRevue='' && $idAuteur='') {
+			echo "Pas de résultat, veuillez tenter une recherche avancée ou réinitialiser la requête";
+			//print_r($_GET);
+		}
+
+		print('</pre></div>');
+	}
+?>
+	
+<!-- <form>
+	<button id="raz" name="raz" value="true">Réinilialiser la requête</button>
+</form> -->
         
-        <?php
-		if($_GET['opt']=='avance')echo "<script>recherche_avancee();</script>";
-		///
-		echo $fin_article;
-		echo $fin_main;
-		echo $footer;
-		echo $fin_container;
-		?>
+<?php
+	if($_GET['opt']=='avance')echo "<script>recherche_avancee();</script>";
+	///
+	echo $fin_article;
+	echo $footer;
+	echo $fin_container;
+?>

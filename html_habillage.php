@@ -4,37 +4,6 @@ $debut_container='
 <body class="page page-id-556 page-template page-template-labex-cap-php">
 	<div class="page-container font-adelle">--
 ';
-$debut_header='
-		<header class="site-header">
-			<a class="site-header__img_link" href="'.$url_site.'" title="'.$titrePrincipal.'" rel="home"></a>
-			<div class="site-header__top" ><br>
-				<h1 class="site-header__logo">
-					'.$titrePrincipal.'
-				</h1>
-				<h2 class="site-header__baseline">Projet du Laboratoire d‚Äôexcellence Cr√©ation Arts Patrimoines</h2>
-				<form role="search" method="get" id="searchform" class="searchform" action="rechercher.php">
-				<div>
-                    <input name="quicksearch" id="autocomplete" type="text">
-					<label class="screen-reader-text" for="autocomplete">Recherche pour&nbsp;:</label>
-					<input id="searchsubmit" value="Rechercher" type="submit">
-				</div>
-			    </form>
-					<script>
-					$( "#autocomplete" ).autocomplete({
-    				source: "suggest.php",
-    				minLength: 3
-					});
-					</script>
-             </div>
-
-			<div class="main-navigation-wrapper" id="navbar">			
-				<nav class="main-navigation">
-					<div class="other-links">
-						<a href="annuaire/" class="icon-book" title="Annuaire"></a>
-						<span class="label">Annuaire</span>
-						<a href="mediatheque" class="icon-layers" title="M√©diath√®que"></a>
-						<span class="label">M√©diath√®que</span>
-';
 $entete='
 <!DOCTYPE html>
 <html class="js svg wf-adelle-n4-active wf-adelle-n7-active wf-active" lang="fr-FR">
@@ -66,91 +35,71 @@ $entete='
 </head>';
 $debut_container='<body class="page page-id-556 page-template page-template-labex-cap-php"><div class="page-container font-adelle">';
 $debut_header='<header class="site-header">
-			<a class="site-header__img_link" href="'.$url_site.'" title="'.$titrePrincipal.'" rel="home"></a>
-			<div class="site-header__top" ><br>
-				<h1 class="site-header__logo">
-					<!-- <a title="'.$titrePrincipal.'" rel="home">'.$titrePrincipal.'</a> -->
-					'.$titrePrincipal.'
-				</h1>
-				<h2 class="site-header__baseline">Projet du Laboratoire d‚Äôexcellence Cr√©ation Arts Patrimoines</h2>
-				<form role="search" method="get" id="searchform" class="searchform" action="rechercher.php">
-				<div>
-                    <input name="quicksearch" id="autocomplete" type="text">
-					<label class="screen-reader-text" for="autocomplete">Recherche pour&nbsp;:</label>
-					<input id="searchsubmit" value="Rechercher" type="submit">
-				</div>
-			    </form>
-                <!--
-                <form action="index.php">
-    				<input id="autocomplete" name="searchFor" type="text" rows="5"/>
-    				<button type="submit">search</button>
-					</form>
-                -->
-					<script>
-					$( "#autocomplete" ).autocomplete({
-    				source: "suggest.php",
-    				minLength: 3
-					});
-					</script>
-             </div>
 
-			<div class="main-navigation-wrapper" id="navbar">			
-				<nav class="main-navigation">
-					<div class="other-links">
-						<a href="annuaire/" class="icon-book" title="Annuaire"></a>
-						<span class="label">Annuaire</span>
-						<a href="mediatheque" class="icon-layers" title="M√©diath√®que"></a>
-						<span class="label">M√©diath√®que</span>
-';
-$suite_header='
-				</div>
-					<div class="main-navigation-container">
-						<div class="menu-navigation-principale-container">
-                        
-                        <ul id="menu-navigation-principale" class="nav-menu">
-                                       
-                        <li id="menu-item-125" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current-menu-ancestor current-menu-parent menu-item-has-children menu-item-125">
-                        	<a href="index.php">Accueil</a>
-						</li>
-						<li id="menu-item-135" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-135">
-							<a href="annuaire_critiques.php">Critiques</a>
-						</li>
-						<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-134">
-							<a href="rechercher.php">Rechercher</a>
-						</li>
-						<li id="menu-item-143" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-143">
-                        	<a>Chercheurs</a>
-						</li>
-						<li id="menu-item-139" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-139">
-                        	<a>Actualit√©s</a>
-						</li>
-						<li id="menu-item-137" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-137">
-                        	<a>Mentions l√©gales</a>
-						</li>		
+			<div class="additional-links" style="width: 185px;">
+				<a href="annuaire/" class="icon-book" title="Annuaire"></a>
+				<a href="mediatheque" class="icon-layers" title="MÈdiathËque"></a>
 ';
 $fin_header='
-</ul>
-                   </div>
-                  </div>
+			<div class="site-header__top" ><br>
+				<a href="http://critiquesdart.univ-paris1.fr/" class="logo-critiques">
+					<img src="logos/Logo_critiques.png" width="650" height="80" alt="critiques díart" title="Logo Critiques">
+				</a>
+				<a href="http://www.univ-paris1.fr/" style="float: right; margin-right: 35px;">
+					<img src="logos/Logo_ufr03.jpg" width="180" height="90" alt="UniversitÈ Paris_1" title="Logo Paris 1">
+				</a>
+
+				<form role="search" method="get" id="searchform" class="searchform" action="rechercher.php" style="top: 137px;">
+					<div>
+	                    <input name="quicksearch" id="autocomplete" type="text" style="border-radius: 10px;">
+						<label class="screen-reader-text" for="autocomplete">Recherche pour&nbsp;:</label>
+						<input id="searchsubmit" value="Rechercher" type="submit">
+					</div>
+			    </form>
+
+                <!-- <form action="index.php">
+    				<input id="autocomplete" name="searchFor" type="text" rows="5"/>
+    				<button type="submit">search</button>
+				</form> -->
+
+				<script>
+					$( "#autocomplete" ).autocomplete({
+    					source: "suggest.php",
+    					minLength: 3
+					});
+				</script>
+             </div>
+			<div class="main-navigation-wrapper" id="navbar">
+				<nav class="main-navigation">
+					<div class="main-navigation-container">
+                        <ul id="menu-navigation-principale" class="nav-menu">
+	                        <li id="menu-item-125" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item current-menu-ancestor current-menu-parent menu-item-has-children menu-item-125">
+	                        	<a href="index.php">Accueil</a>
+							</li>
+							<li id="menu-item-135" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-135">
+								<a href="annuaire_critiques.php">Critiques</a>
+							</li>
+							<li id="menu-item-134" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-134">
+								<a href="rechercher.php">Rechercher</a>
+							</li>
+							<li id="menu-item-143" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-143">
+	                        	<a href="chercheurs.php">Chercheurs</a>
+							</li>
+							<li id="menu-item-139" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-139">
+	                        	<a href="actualites.php">Actualit√©s</a>
+							</li>
+						</ul>
+     				</div>
 				</nav>
 			</div>
-
 		</header>
-';
-$debut_main='
-<section class="main">
-	<header class="page-title page-title-bg4">
-		<h2>Penser le texte √† int√©grer ici
-		<!-- LABEX <abbr title="Cr√©ation, Arts, Patrimoine">CAP</abbr> - <em>heSam Universit√©</em> -->
-		</h2> 
-	</header>
 ';
 $debut_article='
  	<article class="landing-intro">
-					<p style="text-align: justify;"> 
+		<p style="text-align: justify;">
 ';
 $debut_liste='
-	<ul class="pagination letters">
+	<ul class="custom-pagination pagination letters">
 ';
 $fin_liste='
 	</ul><br>
@@ -159,14 +108,40 @@ $fin_article='
 	</article>
  	<br/>
 ';
-$fin_main='
-</section>
-';
 $footer='
 <footer class="site-footer font-adelle">
-			<div class="menu-pied-de-page-container">
-            	<div class="site-footer__copyright"><a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />L‚Äôensemble du contenu de ce site web, sauf exception signal√©e, est mis √† disposition sous licence <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a></div>
-            </div>
+		<div class="site-footer-logos">
+
+
+			<a href="http://labexcap.fr/" class="footer_logo">
+				<img src="logos/Logo_Labex_CAP.jpg" width="120" height="60" alt="Labex CAP" title="Logo Labex CAP">
+			</a>
+			<a href="http://www.hesam.eu/" class="footer_logo">
+				<img src="logos/Logo_heSam.jpg" width="90" height="60" alt="HÈsam UniversitÈ" title="Logo HÈsam UniversitÈ">
+			</a>
+			<a href="http://hicsa.univ-paris1.fr/" class="footer_logo">
+				<img src="logos/Logo_HiCSA.jpg" width="120" height="60" alt="HiCSA" title="Logo HiCSA">
+			</a>
+			<!-- <a href="http://www.univ-paris1.fr/" class="footer_logo">
+				<img src="logos/Logo_ufr03.jpg" width="120" height="60" alt="UniversitÈ Paris_1" title="Logo Paris 1">
+			</a> -->
+			<a href="http://www.citechaillot.fr/" class="footer_logo">
+				<img src="logos/Logo_cite_architecture_patrimoine.png" width="150" height="60" alt="Cite de líarchitecture et du patrimoine" title="Logo de la Cite de líarchitecture et du patrimoine">
+			</a>
+			<a href="http://www.ecoledulouvre.fr/" class="footer_logo">
+				<img src="logos/Logo_ecoledulouvre.jpeg" width="200" height="60" alt="Logo …cole du Louvre" title="Logo …cole du Louvre">
+			</a>
+			<a href="http://www.enc-sorbonne.fr/" class="footer_logo">
+				<img src="logos/Logo_enc.jpg" width="120" height="60" alt="…cole nationale des chartes" title="Logo …cole nationale des chartes">
+			</a>
+		</div>
+		<div class="site-footer-licence">
+			<a href="http://creativecommons.org/licenses/by/4.0/" class="footer_logo">
+				<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
+			</a>
+			<br />
+			Mentions lÈgales
+        </div>
 </footer>
 ';
 $fin_container='

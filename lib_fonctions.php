@@ -1,4 +1,6 @@
 <?php
+error_reporting (0);
+
 /* Configure le script en français */
 setlocale (LC_TIME, 'fr_FR','fra');
 //Définit le décalage horaire par défaut de toutes les fonctions date/heure  
@@ -54,13 +56,13 @@ function date_fr($date_us){
 }
 function milieu_header(){
 	if(isset($_SESSION['user'])){
-		echo "<li id=\"menu-item-135\" class=\"menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-135\">";
-		echo "<a href=\"insertion.php\">Saisie</a>";
-		echo "</li>";
-		echo "<li class=\"menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children\">Bonjour ".$_SESSION['label']."</li>"; 
-	}
-	else{
-			echo "<li class=\"menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children\">Non connecté</li>";
+		echo "<span class=\"connection-status\">
+				<a href=\"insertion.php\">Saisie</a>
+				&nbsp &nbsp &nbsp
+				Bonjour ".$_SESSION['label']."
+			</span>";
+	} else {
+		echo "<span class=\"connection-status\">Non connecté</span>";
 	}
 }
 function listerAuteurs(){
@@ -84,10 +86,10 @@ function listerAuteurs(){
 				$ligne.=$lettre;
 				$ligne.='</span></li>';
 			}
-		}			
+		}
 		$liste.=$ligne;
 	}
-	return($liste); 
+	return($liste);
 }
 function afficherTousLesOuvragesFormOption(){
 	// Dans un formulaire : liste les ouvrages collectifs
@@ -117,12 +119,13 @@ function afficherTousLesAuteurs(){
 	//print($sql);
 	$req_auteurs=$pdo->query($sql) or die('erreur SQL dans la fonction afficherTousLesAuteurs()'); 
 	//$tab_auteurs[]=mysql_fetch_array($req_auteurs);
-	//
     //$r = mysql_fetch_array($);
+	print('<div style="column-count: 3;">');
 	while ($r = $req_auteurs->fetch())
     {
 		print('<p><a href="biblio_auteur.php?critique='.$r['pk_id_critiqueDart'].'">'.$r['prenom'].' '.$r['nom'].' ('.$r['anneeNaissance'].'-'.$r['anneeMort'].')</a></p>');
     }
+	print('</div>');
 	return($r);
 }
 function afficherTousLesAuteursFormOption(){

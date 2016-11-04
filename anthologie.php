@@ -1,4 +1,6 @@
 <?php
+		error_reporting (0);
+
 		session_start();
 		include 'config.php';
 		include 'lib_fonctions.php';
@@ -30,28 +32,24 @@
 			echo $debut_container;
 			echo $debut_header;
 			if(isset($_SESSION['user'])){
-				echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a>
-							<span class=\"label\">Se deconnecter</span>"; 
-		}
-		else{
-			echo "<a href=\"connectV2.php\" class=\"icon-person\"></a>
-						<span class=\"label\">
-                        S’identifier</span>";
-		}
-		echo $suite_header;
-		milieu_header();
-	    echo $fin_header;
-		echo $debut_main;
-		$url_auteur=getAuteurURL_ById($_GET['critique']);
-		echo "
-		 	<article class='std'>
-			<h2 class='std__title'>";
-				echo " ";
-				afficherAuteurByIdModeBiblio($_GET['critique']);
-				//echo $auteur_principal;
-		echo "</h2>";
-		echo "<h3>".$sous_titre."</h3><br />";
-		afficher_pseudos_by_id_critiqueDart($_GET['critique']);
+				echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a></div>";
+			} else {
+				echo "<a href=\"connectV2.php\" class=\"icon-person\" title=\"S’identifier\"></a></div>";
+			}
+		
+			milieu_header();
+		    echo $fin_header;
+			$url_auteur=getAuteurURL_ById($_GET['critique']);
+			echo "
+			 	<article class='std'>
+				<h2 class='std__title'>";
+					echo " ";
+					afficherAuteurByIdModeBiblio($_GET['critique']);
+					//echo $auteur_principal;
+			echo "</h2>";
+			echo "<h3>".$sous_titre."</h3><br />";
+			afficher_pseudos_by_id_critiqueDart($_GET['critique']);
+			
 //echo $url_auteur;
 
 echo "<h4>Bibliographies</h4><p><ul>";
@@ -167,24 +165,17 @@ else {
 	echo $entete;
 	echo $debut_container;
 	echo $debut_header;
-		if(isset($_SESSION['user'])){
-        	echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a>
-						<span class=\"label\">Se deconnecter</span>"; 
-		}
-		else{
-			echo "<a href=\"connectV2.php\" class=\"icon-person\"></a>
-						<span class=\"label\">
-                        S’identifier</span>";
-		}
-		echo $suite_header;
-		milieu_header();
-	    echo $fin_header;
-		echo $debut_main;
-		echo $debut_article;
-		echo "<p>Il faut choisir un critique dans l'onglet <em>Critiques</em></p>";
+	if(isset($_SESSION['user'])){
+		echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a></div>";
+	} else {
+		echo "<a href=\"connectV2.php\" class=\"icon-person\" title=\"S’identifier\"></a></div>";
+	}
+	milieu_header();
+    echo $fin_header;
+	echo $debut_article;
+	echo "<p>Il faut choisir un critique dans l'onglet <em>Critiques</em></p>";
 }
     echo $fin_article;
-	echo $fin_main;
 	echo $footer;
 	echo $fin_container;
 ?>

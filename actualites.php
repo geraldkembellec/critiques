@@ -14,17 +14,12 @@
 	milieu_header();
 	echo $fin_header;
 	echo $debut_article;
-	echo $debut_liste;
-	$resultat=listerAuteurs();
-	echo $resultat;
-	echo $fin_liste;
-	if(isset($_GET['lettre'])){
-		print('<h3>'.$_GET['lettre'].' / <a href="annuaire_critiques.php">afficher tous les auteurs</a></h3><hr class="listing-redline">');
-		afficherAuteursParLettre($_GET['lettre']);
-	} else {
-		print('<h3>Tous les auteurs</h3><hr class="listing-redline">');
-		afficherTousLesAuteurs();
-	}
+?>
+
+<br>
+Cette page est en cours de réalisation.
+
+<?php
 	echo $fin_article;
 	echo $footer;
 	echo $fin_container;

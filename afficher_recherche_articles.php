@@ -7,18 +7,12 @@
 		echo $debut_container;
 		echo $debut_header;
 		if(isset($_SESSION['user'])){
-        	echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a>
-						<span class=\"label\">Se deconnecter</span>"; 
+			echo "<a href=\"unconnect.php\" class=\"icon-deconnect\" title=\"Se déconnecter\"></a></div>";
+		} else {
+			echo "<a href=\"connectV2.php\" class=\"icon-person\" title=\"S’identifier\"></a></div>";
 		}
-		else{
-			echo "<a href=\"connectV2.php\" class=\"icon-person\"></a>
-						<span class=\"label\">
-                        S’identifier</span>";
-		}
-		echo $suite_header;
 		milieu_header();
 	    echo $fin_header;
-		echo $debut_main;
 		echo $debut_article;
 		///
 	global $pdo;	
@@ -98,7 +92,6 @@
 				}
 	
 	echo "</ol>".$fin_article;
-	echo $fin_main;
 	echo $footer;
 	echo $fin_container;
 ?>
