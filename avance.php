@@ -920,13 +920,13 @@ switch ($_GET['typeCritique']) {
        //echo 'générique';
 	   if($_GET['auteur']!='' || $_GET['anneeEditionMax']!='' || $_GET['anneeEditionMin']!='' || $_GET['Titre_SousTitre']!='' || $_GET['typeSignature']!='' || $_GET['revue']!=''){
 		   echo "<p id='navigation' align ='right'>
-			   <a href='#articles' title='Aller directement aux articles'>Articles</a>, 
-			   <a href='#chapitres' title='Aller directement aux chapitres'>chapitres</a>,
-			   <a href='#monographies' title='Aller directement aux monographies'>ouvrages</a>,
-			   <a href='#prefaces' title='Aller directement aux préfaces'>préfaces</a>,
-			   <a href='#postfaces' title='Aller directement aux postfaces'>postfaces</a>,
-			   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages'>coordinations</a>,
-			   <a href='#introductions' title='Aller directement aux introductions'>introductions</a>
+		   <a href='#articles' title='Aller directement aux articles'>Articles</a>, 
+		   <a href='#chapitres' title='Aller directement aux chapitres'>chapitres</a>,
+		   <a href='#monographies' title='Aller directement aux monographies'>ouvrages</a>,
+		   <a href='#prefaces' title='Aller directement aux préfaces'>préfaces</a>,
+		   <a href='#postfaces' title='Aller directement aux postfaces'>postfaces</a>,
+		   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages'>coordinations</a>,
+		   <a href='#introductions' title='Aller directement aux introductions'>introductions</a>
 		   </p>";
 		   //
 			if($_GET['Titre_SousTitre']!='' && $_GET['choix']=='choix_sous_titre_et_titre'){
@@ -955,9 +955,9 @@ switch ($_GET['typeCritique']) {
 				echo "<h3>Rappel de la requête</h3><ol>".$rappel."</ol>";
 			}
 			
-			les_articles(FALSE);
-			les_chapitres(FALSE);
 			les_monographies(FALSE);
+			les_chapitres(FALSE);
+			les_articles(FALSE);
 			les_prefaces(FALSE);
 			les_postfaces(FALSE);
 			les_coordinations(FALSE);

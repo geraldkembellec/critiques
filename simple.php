@@ -618,9 +618,9 @@ function les_articles_simple($verbose){
 	   </p>";
 	   
 	   // Penser à tester les alias
-	   les_articles_simple(FALSE);
-	   les_chapitres_simple(FALSE);
 	   les_monographies(FALSE);
+	   les_chapitres_simple(FALSE);
+	   les_articles_simple(FALSE);
 	   les_prefaces(FALSE);
 	   les_postfaces(FALSE);
 	   les_coordinations_simple(FALSE);
