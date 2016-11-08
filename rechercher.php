@@ -20,6 +20,11 @@
 	
 	///
 ?>
+		<p align="justify" class="paragraphe" style="margin-bottom: 25px;">
+			Les formulaires de recherche permettent d’exploiter une base de données constituée des références issues des bibliographies primaires des critiques répertoriés dans le site. 
+			La base est interopérable avec les technologies du Web de données et donc interrogeable via Isidore, Hal et les outils comme Zotero ou Mendeley.
+		</p>
+		
         <form id="simple" action="simple.php" method="get">
          <h2>Recherche simple / <a href="javascript:recherche_avancee();">Recherche avancée</a></h2>
          <br />
@@ -44,7 +49,7 @@
  			<h2><a href="javascript:recherche_simple();">Recherche simple</a> / Recherche avancée</h2>        
           <!-- Si vous n'avez qu'un auteur à selectionner; cliquez <a href="javascript:mono()">ici</a>) -->
           <fieldset style="margin-top: 10px;">
-       		<legend>Rechercher dans le titre ou le complément de titre de la critique</legend>
+       		<legend>Rechercher dans le titre ou le complément de titre</legend>
           <p><label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Chercher un mot ou un groupe de mots</label>
           <input name="Titre_SousTitre" type="text" size="35" maxlength="100" /></p>
           <p><label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">dans</label>
@@ -97,7 +102,7 @@
   	 <fieldset style="margin-top: 10px;">
        <legend>Aide à la recherche d'ouvrage ou de revue</legend>
         <p>
-        <label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Type de critique<br /> (laisser vide pour ne pas spécifier)</label>
+        <label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Type de texte<br /> (laisser vide pour ne pas spécifier)</label>
         <select name="typeCritique" onChange="avance();"> 
         <option label="vide"></option>
             <optgroup label="Périodique">

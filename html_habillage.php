@@ -38,7 +38,7 @@ $debut_header='<header class="site-header">
 
 			<div class="additional-links" style="width: 185px;">
 				<a href="annuaire/" class="icon-book" title="Annuaire"></a>
-				<a href="mediatheque" class="icon-layers" title="Médiathèque"></a>
+				<a href="mediatheque" class="icon-layers" title="MÃ©diathÃ¨que"></a>
 ';
 $fin_header='
 			<div class="site-header__top" ><br>
@@ -110,9 +110,8 @@ $fin_article='
 ';
 $footer='
 <footer class="site-footer font-adelle">
+		<hr style="width: 80%; margin-bottom: 30px;">
 		<div class="site-footer-logos">
-
-
 			<a href="http://labexcap.fr/" class="footer_logo">
 				<img src="logos/Logo_Labex_CAP.jpg" width="120" height="60" alt="Labex CAP" title="Logo Labex CAP">
 			</a>
@@ -140,7 +139,7 @@ $footer='
 				<img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" />
 			</a>
 			<br />
-			Mentions légales
+			Mentions lÃ©gales
         </div>
 </footer>
 ';
