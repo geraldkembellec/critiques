@@ -329,6 +329,7 @@ article.std {
 	margin: 0 auto 20px;
 	margin-top: 15px;
 	overflow: auto;
+	min-height: 500px;
 }
 	.std__title {
 		margin: 35px 0 15px 0;
