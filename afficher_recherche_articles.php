@@ -34,7 +34,7 @@
 		 	<article class='std'>
 			<h2 class='std__title'>
 				Les documents retrouvés</h2>";
-				echo "<h3>Liste des articles de périodiques</h3><ol>";
+				echo "<h3>Articles</h3><ol>";
 				$resultats=$pdo->query($sql) or die('erreur SQL');
 				foreach ($resultats as $enr){
 					print('<li vocab="http://schema.org/" typeof="ScholarlyArticle">');
