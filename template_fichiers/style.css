@@ -690,8 +690,6 @@ table.annuaire-listing {
 			font-weight: 700;
 		}
 
-
-
 /* HOMEPAGE */
 #labex-timeline {
 	border-radius: 0;
@@ -1035,4 +1033,27 @@ table.annuaire-listing {
 .div_actualites {
 	margin-bottom: 25px;
 }
-
+.form_control {
+	width: 250px;
+}
+.connect_page {
+	width: 320px;
+	margin: 0 390px;
+}
+.connect_form {
+	height: 200px;
+	border-radius: 10px;
+	border: 2px solid rgb(168,168,168);
+	margin-top: 20px;
+}
+.form_group {
+	margin: 10px 30px;
+}
+.form_error_message {
+	color: red;
+	margin-bottom: 10px;
+	margin-left: 390px;
+}
+.form_input_div {
+	margin-top: 5px;
+}
