@@ -1,5 +1,8 @@
 <?php
 		session_start();
+		
+		$totalHits = 0;
+		
 		include 'config.php';
 		include 'lib_fonctions.php';
 		include 'html_habillage.php';
@@ -37,7 +40,10 @@ function les_introductions_simple($verbose){
 	//echo $sql2;
 	$resultats=$pdo->query($sql2) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_introductions=$resultats->rowCount();
+	$totalHits += $nb_introductions;
 	
 	if($nb_introductions > 0) {
 		echo "<h3 id='introductions'>Introductions (".$nb_introductions.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -114,7 +120,10 @@ function les_coordinations_simple($verbose){
 	//echo $sql2;
 	$resultats=$pdo->query($sql2) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_coordinations=$resultats->rowCount();
+	$totalHits += $nb_coordinations;
 	
 	if($nb_coordinations > 0) {
 		echo "<h3 id='coordinations'>Coordinations d'ouvrages (".$nb_coordinations.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -162,7 +171,10 @@ function les_postfaces($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_chapitres=$resultats->rowCount();
+	$totalHits += $nb_chapitres;
 	
 	if($nb_chapitres > 0) {
 		echo "<h3 id='postfaces'>Postfaces (".$nb_chapitres.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -243,7 +255,10 @@ function les_prefaces($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_prefaces=$resultats->rowCount();
+	$totalHits += $nb_prefaces;
 	
 	if($nb_prefaces > 0) {
 		echo "<h3 id='prefaces'>Préfaces (".$nb_prefaces.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -330,7 +345,10 @@ function les_chapitres_simple($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_chapitres=$resultats->rowCount();
+	$totalHits += $nb_chapitres;
 	
 	if($nb_chapitres > 0) {
 		echo "<h3 id='chapitres'>Collaborations à des ouvrages collectifs (".$nb_chapitres.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -408,7 +426,10 @@ function les_monographies($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_monographies=$resultats->rowCount();
+	$totalHits += $nb_monographies;
 	
 	if($nb_monographies > 0) {
 		echo "<h3 id='monographies'>Ouvrages et ouvrages traduits (".$nb_monographies.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -496,7 +517,10 @@ function les_articles_simple($verbose){
 	}
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
+	
+	global $totalHits;
 	$nb_articles=$resultats->rowCount();
+	$totalHits += $nb_articles;
 	
 	$lien_JSON="<a href='API/json_encode_article.php?Titre_SousTitre=".$_GET['Titre_SousTitre']."&choix=".$_GET['choix'];
 	$lien_JSON.="&auteur=".$_GET['auteur']."&type=".$_GET['type']."&typeSignature=".$_GET['typeSignature']."&pseudonyme=".$_GET['pseudonyme'];
@@ -608,13 +632,13 @@ function les_articles_simple($verbose){
 	   }
 	   echo ".</p>";
 	   echo "<p id='navigation' align ='right'>
-		   <a href='#articles' title='Aller directement aux articles'>Articles</a>,
-		   <a href='#chapitres' title='Aller directement aux chapitres'>chapitres</a>,
-		   <a href='#monographies' title='Aller directement aux monographies'>ouvrages</a>,
-		   <a href='#prefaces' title='Aller directement aux préfaces'>préfaces</a>,
-		   <a href='#postfaces' title='Aller directement aux postfaces'>postfaces</a>,
-		   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages'>coordinations</a>,
-		   <a href='#introductions' title='Aller directement aux introductions'>introductions</a>
+		   <a href='#articles' title='Aller directement aux articles' style='color: #1f398f;'>Articles</a>,
+		   <a href='#chapitres' title='Aller directement aux chapitres' style='color: #1f398f;'>chapitres</a>,
+		   <a href='#monographies' title='Aller directement aux monographies' style='color: #1f398f;'>ouvrages</a>,
+		   <a href='#prefaces' title='Aller directement aux préfaces' style='color: #1f398f;'>préfaces</a>,
+		   <a href='#postfaces' title='Aller directement aux postfaces' style='color: #1f398f;'>postfaces</a>,
+		   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages' style='color: #1f398f;'>coordinations</a>,
+		   <a href='#introductions' title='Aller directement aux introductions' style='color: #1f398f;'>introductions</a>
 	   </p>";
 	   
 	   // Penser à tester les alias
@@ -634,6 +658,7 @@ function les_articles_simple($verbose){
 	   
 	//break;
 	//les_articles();
+	echo "<p align='right'>Total hits: $totalHits</p>";
 	echo "<p align='right'><a href='rechercher.php'>Recommencer la recherche.</a>  <a href='#navigation' title='remonter'>&uarr;</a></p>";
 	//if (get_magic_quotes_gpc()) {echo "activé";}
 	//else {echo "desactivé";}

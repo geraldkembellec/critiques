@@ -35,10 +35,12 @@
 						<li>Université Paris 1 Panthéon-Sorbonne</li>
 					</ul>
 				</div>
+				<br>
+				<br>
 				<h3 class="std__title" style="margin-top: 10px;">Nous contacter</h3>
 				<div>
 					<ul class="side_panel_ul">
-						<li>critiquesdart@univ-paris1.fr</li>
+						<li style="color: #1f398f;">critiquesdart@univ-paris1.fr</li>
 					</ul>
 				</div>
 			</div>

@@ -35,7 +35,6 @@ $entete='
 </head>';
 $debut_container='<body class="page page-id-556 page-template page-template-labex-cap-php"><div class="page-container font-adelle">';
 $debut_header='<header class="site-header">
-
 			<div class="additional-links" style="width: 185px;">
 				<a href="annuaire/" class="icon-book" title="Annuaire"></a>
 				<a href="mediatheque" class="icon-layers" title="Médiathèque"></a>

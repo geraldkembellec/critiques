@@ -1,6 +1,8 @@
 <?php
 		error_reporting (0);
-
+		
+		$totalHits = 0;
+		
 		session_start();
 		include 'config.php';
 		include 'lib_fonctions.php';
@@ -16,6 +18,7 @@
 		milieu_header();
 	    echo $fin_header;
 		echo $debut_article;
+
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////	
 function les_introductions($verbose){
@@ -72,13 +75,15 @@ function les_introductions($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_introductions=$resultats->rowCount();
+	$totalHits += $nb_introductions;
 	
 	if($nb_introductions > 0) {
 		echo "<h3 id='introductions'>Introductions (".$nb_introductions.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
 		
 		foreach ($resultats as $enr){
-			
 			$critique["id"]=$enr['idCritique'];
 			$critique["idOuvrage"]=$enr['idOuvrage'];
 						$critique["nom"]=$enr['nom'];
@@ -136,6 +141,7 @@ function les_introductions($verbose){
 		echo "</ol>";
 	}
 }
+
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////
 function les_coordinations($verbose){
@@ -194,7 +200,10 @@ function les_coordinations($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_coordinations=$resultats->rowCount();
+	$totalHits += $nb_coordinations;
 	
 	if($nb_coordinations > 0) {
 	echo "<h3 id='coordinations'>Coordinations d'ouvrages (".$nb_coordinations.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -220,6 +229,7 @@ function les_coordinations($verbose){
 		echo "</ol>";
 	}
 }
+
 /////////////////////////////////////////////////////
 /////////////////////////////////////////////////////	
 function les_postfaces($verbose){
@@ -277,13 +287,15 @@ function les_postfaces($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
-	$nb_chapitres=$resultats->rowCount();
 	
-	if($nb_chapitres > 0) {
-		echo "<h3 id='postfaces'>Postfaces (".$nb_chapitres.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
+	global $totalHits;
+	$nb_postfaces=$resultats->rowCount();
+	$totalHits += $nb_postfaces;
+	
+	if($nb_postfaces > 0) {
+		echo "<h3 id='postfaces'>Postfaces (".$nb_postfaces.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
 		
 		foreach ($resultats as $enr){
-			
 			$critique["id"]=$enr['idCritique'];
 			$critique["idOuvrage"]=$enr['idOuvrage'];
 						$critique["nom"]=$enr['nom'];
@@ -396,7 +408,10 @@ function les_prefaces($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_prefaces=$resultats->rowCount();
+	$totalHits += $nb_prefaces;
 	
 	if($nb_prefaces > 0) {
 		echo "<h3 id='prefaces'>Préfaces (".$nb_prefaces.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -461,8 +476,6 @@ function les_prefaces($verbose){
 		echo "</ol>";
 	}
 }
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////
 ///////////////// Chapitres /////////////////////////
@@ -522,7 +535,10 @@ function les_chapitres($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_chapitres=$resultats->rowCount();
+	$totalHits += $nb_chapitres;
 	
 	if($nb_chapitres > 0) {
 		echo "<h3 id='chapitres'>Collaborations à des ouvrages collectifs (".$nb_chapitres.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -586,8 +602,6 @@ function les_chapitres($verbose){
 		echo "</ol>";
 	}
 }
-/////////////////////////////////////////////////////
-/////////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////
 ////////// Monographies /////////////////////////////
@@ -647,7 +661,10 @@ function les_monographies($verbose){
 	//echo $sql;
 	$resultats=$pdo->query($sql) or die('erreur SQL');
 	//$resultats=$pdo->query($sql) or die(mysql_errno() . " " . mysql_error());
+	
+	global $totalHits;
 	$nb_monographies=$resultats->rowCount();
+	$totalHits += $nb_monographies;
 	
 	if($nb_monographies > 0) {
 		echo "<h3 id='monographies'>Ouvrages et ouvrages traduits (".$nb_monographies.") <a href='#navigation' title='remonter'>&uarr;</a></h3><ol>";
@@ -713,6 +730,7 @@ function les_monographies($verbose){
 		echo "</ol>";
 	}
 }
+
 /////////////////////////////////////////////////////
 ///////////// Articles //////////////////////////////
 /////////////////////////////////////////////////////
@@ -771,7 +789,10 @@ function les_articles($verbose){
 		echo "<h3>Rappel de la requête</h3><ol>".$rappel."</ol>";
 	}
 	$resultats=$pdo->query($sql) or die('erreur SQL');
+	
+	global $totalHits;
 	$nb_articles=$resultats->rowCount();
+	$totalHits += $nb_articles;
 	
 	$lien_JSON="<a href='API/json_encode_article.php?Titre_SousTitre=".$_GET['Titre_SousTitre']."&choix=".$_GET['choix'];
 	$lien_JSON.="&auteur=".$_GET['auteur']."&type=".$_GET['type']."&typeSignature=".$_GET['typeSignature']."&pseudonyme=".$_GET['pseudonyme'];
@@ -870,13 +891,14 @@ function les_articles($verbose){
 		}
 	}
 }
+
 ////////////////////////////////////////////////////////
 		
-echo "<h2 id='ancre' class='std__title'>Résultats de la recherche</h2>";
+echo "<h2 id='ancre' class='std__title'>Résultats de la recherche</h2><span id='numberOfHits'></span>";
 
 switch ($_GET['typeCritique']) {
     case 'article':
-	// Préparer les liens de réagencement
+		// Préparer les liens de réagencement
 		$lien_agencer_nom_article="<a href='avance.php?Titre_SousTitre=".$_GET['Titre_SousTitre']."&choix=".$_GET['choix'];
 		$lien_agencer_nom_article.="&auteur=".$_GET['auteur']."&type=".$_GET['type']."&typeSignature=".$_GET['typeSignature']."&pseudonyme=".$_GET['pseudonyme'];
 		$lien_agencer_nom_article.="&anneeEditionMin=".$_GET['anneeEditionMin']."&anneeEditionMax=".$_GET['anneeEditionMax']."&typeCritique=".$_GET['typeCritique'];
@@ -920,13 +942,13 @@ switch ($_GET['typeCritique']) {
        //echo 'générique';
 	   if($_GET['auteur']!='' || $_GET['anneeEditionMax']!='' || $_GET['anneeEditionMin']!='' || $_GET['Titre_SousTitre']!='' || $_GET['typeSignature']!='' || $_GET['revue']!=''){
 		   echo "<p id='navigation' align ='right'>
-		   <a href='#articles' title='Aller directement aux articles'>Articles</a>, 
-		   <a href='#chapitres' title='Aller directement aux chapitres'>chapitres</a>,
-		   <a href='#monographies' title='Aller directement aux monographies'>ouvrages</a>,
-		   <a href='#prefaces' title='Aller directement aux préfaces'>préfaces</a>,
-		   <a href='#postfaces' title='Aller directement aux postfaces'>postfaces</a>,
-		   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages'>coordinations</a>,
-		   <a href='#introductions' title='Aller directement aux introductions'>introductions</a>
+		   <a href='#articles' title='Aller directement aux articles' style='color: #1f398f;'>Articles</a>, 
+		   <a href='#chapitres' title='Aller directement aux chapitres' style='color: #1f398f;'>chapitres</a>,
+		   <a href='#monographies' title='Aller directement aux monographies' style='color: #1f398f;'>ouvrages</a>,
+		   <a href='#prefaces' title='Aller directement aux préfaces' style='color: #1f398f;'>préfaces</a>,
+		   <a href='#postfaces' title='Aller directement aux postfaces' style='color: #1f398f;'>postfaces</a>,
+		   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages' style='color: #1f398f;'>coordinations</a>,
+		   <a href='#introductions' title='Aller directement aux introductions' style='color: #1f398f;'>introductions</a>
 		   </p>";
 		   //
 			if($_GET['Titre_SousTitre']!='' && $_GET['choix']=='choix_sous_titre_et_titre'){
@@ -967,8 +989,9 @@ switch ($_GET['typeCritique']) {
 		}
 	   
 	break;
-} 
+}
 
+echo "<p align='right'>Total hits: $totalHits</p>";
 echo "<p align='right'><a href='rechercher.php?opt=avance'>Recommencer la recherche.</a>  <a href='#navigation' title='remonter'>&uarr;</a></p>";
 //if (get_magic_quotes_gpc()) {echo "activé";}
 //else {echo "desactivé";}
