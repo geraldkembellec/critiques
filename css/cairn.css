@@ -1833,10 +1833,9 @@ ul.pagination a:hover, ul.pagination a.active, ul.pagination span:hover, ul.pagi
   border: 1px solid #0d0d0d;
 }
 
-
 .pagination.letters {
     overflow : hidden;
-    width : 80%;
+    width : 70%;
     position : relative;
     left : 0 px;
 }
