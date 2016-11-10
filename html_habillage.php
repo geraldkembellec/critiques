@@ -35,9 +35,7 @@ $entete='
 </head>';
 $debut_container='<body class="page page-id-556 page-template page-template-labex-cap-php"><div class="page-container font-adelle">';
 $debut_header='<header class="site-header">
-			<div class="additional-links" style="width: 185px;">
-				<a href="annuaire/" class="icon-book" title="Annuaire"></a>
-				<a href="mediatheque" class="icon-layers" title="Médiathèque"></a>
+			<div class="additional-links" style="width: 65px; margin-top: -6px;">
 ';
 $fin_header='
 			<div class="site-header__top" ><br>
@@ -48,7 +46,7 @@ $fin_header='
 					<img src="logos/Logo_ufr03.jpg" width="180" height="90" alt="Universit� Paris_1" title="Logo Paris 1">
 				</a>
 
-				<form role="search" method="get" id="searchform" class="searchform" action="rechercher.php" style="top: 137px;">
+				<form role="search" method="get" id="searchform" class="searchform" action="rechercher.php" style="top: 133px;">
 					<div>
 	                    <input name="quicksearch" id="autocomplete" type="text" style="border-radius: 10px;">
 						<label class="screen-reader-text" for="autocomplete">Recherche pour&nbsp;:</label>

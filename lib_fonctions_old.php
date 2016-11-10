@@ -59,7 +59,7 @@ function milieu_header(){
 		echo "<li class=\"menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children\">Bonjour ".$_SESSION['label']."</li>"; 
 	}
 	else{
-			echo "<li class=\"menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children\">Non connecté</li>";
+		echo "<li class=\"menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children\">Non connecté</li>";
 	}
 }
 function listerAuteurs(){

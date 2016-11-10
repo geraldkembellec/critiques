@@ -56,13 +56,12 @@ function date_fr($date_us){
 }
 function milieu_header(){
 	if(isset($_SESSION['user'])){
-		echo "<span class=\"connection-status\">
+		echo "<div class=\"connection-status connection-status-connecte\">
+				Bonjour ".$_SESSION['label']."&nbsp &nbsp
 				<a href=\"insertion.php\">Saisie</a>
-				&nbsp &nbsp &nbsp
-				Bonjour ".$_SESSION['label']."
-			</span>";
+			</div>";
 	} else {
-		echo "<span class=\"connection-status\">Non connecté</span>";
+		echo "<div class=\"connection-status\">Non connecté</div>";
 	}
 }
 function listerAuteurs(){
