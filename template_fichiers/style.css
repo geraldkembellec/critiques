@@ -15,6 +15,7 @@ html, body {
 }
 .site-header {
 	position: relative;	
+	height: 200px;
 }
 
 .site-header__top {
@@ -143,19 +144,27 @@ html, body {
 				background-image: url(img/icn-layers.png);
 			}
 		.additional-links > a.icon-person {
-			background-image: url(img/icn-person.svg);
+			background-image: url(img/login.svg);
+			height: 28px;
 		}
 			html.no-svg .additional-links > a.icon-person {
-				background-image: url(img/icn-person.png);
+				background-image: url(img/login.svg);
+				height: 28px;
 			}
 		.additional-links > a.icon-deconnect {
-			background-image: url(img/deconnect.png);
+			background-image: url(img/logout.svg);
+			height: 28px;
 		}
 		
 		.connection-status {
-			margin-left: 900px;
+			margin-left: 1080px;
 			font-family: Adele, Arial, sans-serif;
-			font-size: 12px;
+			font-size: 14px;
+			margin-top: 8px;
+		}
+		
+		.connection-status-connecte {
+			margin-left: 990px;
 		}
 
 		.site-header .main-navigation .main-navigation-container {
@@ -985,7 +994,7 @@ table.annuaire-listing {
 	margin: 0 5px 0 5px;
 }
 .custom-pagination{
-	margin-left: 65px;
+	margin-left: 110px;
 	margin-top: 50px;
 }
 .paragraphe{
@@ -1023,3 +1032,7 @@ table.annuaire-listing {
 	border-radius: 7px;
 	margin-left: 75px;
 }
+.div_actualites {
+	margin-bottom: 25px;
+}
+
