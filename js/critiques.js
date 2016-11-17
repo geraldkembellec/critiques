@@ -134,11 +134,11 @@ function recherche_simple() {
 function nouvelle_revue() {
 	// Affiche le formulaire de saisie de revue dans le div transparent
 	var text = '';
-	document.getElementById("transparent").style.height="350px";
+	document.getElementById("transparent").style.height="260px";
 	document.getElementById("transparent").style.visibility="visible";
 	//text+='<form id="nouvelle_revue" name="nouvelle_revue" method="post" action="nouvelleRevue.php" onSubmit="return(envoyerNouveauPeriodique(this));">';
 	text+='<form id="nouvelle_revue" name="nouvelle_revue" method="post" action="nouvelleRevue.php">';
-	text+='<h2>Vous allez saisir un nouveau Périodique</h2>';
+	text+='<h3>Vous allez saisir un nouveau Périodique</h3>';
 	text+='<p><label class="control-label col-sm-8">Titre du périodique</label><input name="TitrePeriodique" type="text" size="45" maxlength="255" required /><p>';
     //text+='<p><label class="control-label col-sm-8">Complément de titre de périodique</label>';
 	//text+='<input name="ComplementTitrePeriodique" type="text" size="45" maxlength="255" /></p>';
@@ -149,18 +149,18 @@ function nouvelle_revue() {
 	text+='<option value="bi-mensuel">Bi-mensuel</option><option value="semestriel">Semestriel</option><option value="annuel">Annuel</option>';
 	text+='<option value="trimestriel">Trimestriel</option><option value="nonrenseigne">Non Renseigné</option></select><p>';
 	text+='<p><label class="control-label col-sm-8">ISSN</label><input name="issn" type="text" size="9" maxlength="9" /></p>';
-	text+='<p><input type="submit" value="valider la saisie du nouveau périodique">';
-    text+='<input type="button" Value="Annuler" onClick="javascript:cache();" />';
+	text+='<p><input type="submit" value="Valider la saisie du nouveau périodique" style="margin-right: 10px;">';
+    text+='<input type="button" Value="Annuler" onClick="javascript:cache();" style="margin-right: 10px;" />';
     text+='</p></form>';
 	document.getElementById("transparent").innerHTML = text;
 }
 function nouvel_ouvrage() {
 	// Affiche le formulaire de saisie d'ouvrage dans le div transparent
 	var text = '';
-	document.getElementById("transparent").style.height="700px";
+	document.getElementById("transparent").style.height="480px";
 	document.getElementById("transparent").style.visibility="visible";
 	text+='<form id="nouvelOuvrage" name="nouvelOuvrage" method="post" action="nouvelOuvrage.php">';
-	text+='<h2>Vous allez saisir un nouvel ouvrage</h2>';
+	text+='<h3>Vous allez saisir un nouvel ouvrage</h3>';
 	text+='<p><label class="control-label col-sm-8">Titre de l\'ouvrage</label><input name="TitreOuvrage" type="text" size="50" maxlength="255" required /></p>';
     text+='<p><label class="control-label col-sm-8">Complément de titre de l\'ouvrage</label><input name="SousTitreOuvrage" type="text" size="50" maxlength="255" /></p>';
     text+='<p><label class="control-label col-sm-8">Coordination de l\'ouvrage</label><input name="CoordinationOuvrage" type="text" size="50" maxlength="255" /></p>';
@@ -172,8 +172,28 @@ function nouvel_ouvrage() {
 	text+='<input name="Edition" type="text" size="4" maxlength="4" /></p>';
 	text+='<p><label class="control-label col-sm-8">Ville d\'édition</label><input name="VilleEdition" type="text" size="50" maxlength="255" /></p>';
     text+='<p><label class="control-label col-sm-8">ISBN</label><input name="ISBN" type="text" size="19" maxlength="19" /></p>';
-	text+='<p><input type="submit" value="valider la saisie du nouvel ouvrage">';
-    text+='<input type="button" Value="Annuler" onClick="javascript:cache();" />';
+	text+='<p><input type="submit" value="Valider la saisie du nouvel ouvrage" style="margin-right: 10px;">';
+    text+='<input type="button" Value="Annuler" onClick="javascript:cache();" style="margin-right: 10px;" />';
     text+='</p></form>';
 	document.getElementById("transparent").innerHTML = text;
 }
+function multi() {
+	document.getElementById('multi').style.display="block";
+	document.getElementById('multi').style.visibility="visible";     
+	document.getElementById('collectif').style.display="none";
+	document.getElementById('collectif').style.visibility="hidden";
+	vider();
+}
+function collectif() {
+	document.getElementById('collectif').style.display="block";
+	document.getElementById('collectif').style.visibility="visible";    
+	document.getElementById('multi').style.visibility="hidden";   
+	document.getElementById('multi').style.display="none";
+	vider();
+}
+function vider(){
+	document.getElementById('auteur').value = "";
+	document.getElementById('auteurs').value = "";
+	document.getElementById('collectif_nomme').value = "";
+	return false;
+};
