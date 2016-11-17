@@ -41,8 +41,8 @@
         <header class="page-title page-title-bg4">
             <h1>Bases de données Critiques d'Art - <em>Saisie des critiques</em></h1>
         </header>
+        <h1>Espace de saisie</h1>
            <div class="container">
-            <h1>Espace de saisie</h1>
             <?php
 			if(!isset($_SESSION['auteurs'])){
 				//echo "<mark>On teste</mark>";

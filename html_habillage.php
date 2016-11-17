@@ -1,9 +1,5 @@
 <?php
 $titrePrincipal="Bibliographies de critiques d'art francophones";
-$debut_container='
-<body class="page page-id-556 page-template page-template-labex-cap-php">
-	<div class="page-container font-adelle">--
-';
 $entete='
 <!DOCTYPE html>
 <html class="js svg wf-adelle-n4-active wf-adelle-n7-active wf-active" lang="fr-FR">
@@ -33,19 +29,26 @@ $entete='
 	<link type="text/css" rel="stylesheet" href="css/critiques.css">
 	<link rel="search" type="application/opensearchdescription+xml" title="Critiques" href="http://critiquesdart.univ-paris1.fr/opensearch.xml" />
 </head>';
-$debut_container='<body class="page page-id-556 page-template page-template-labex-cap-php"><div class="page-container font-adelle">';
+$debut_container='<body><div class="page-container font-adelle">';
 $debut_header='<header class="site-header">
-			<div class="additional-links" style="width: 65px; margin-top: -6px;">
+			<div class="additional-links" style="width: 65px;">
 ';
+// TODO: Faire un SELECT COUNT(*) FROM `critique` pour calculer automatiquement le "Nombre de manifestes"
 $fin_header='
 			<div class="site-header__top" ><br>
 				<a href="http://critiquesdart.univ-paris1.fr/" class="logo-critiques">
-					<img src="logos/Logo_critiques.png" width="650" height="80" alt="critiques d’art" title="Logo Critiques">
+					<img src="logos/Logo_critiques.png" width="650" height="80" alt="critiques dâ€™art" title="Logo Critiques">
 				</a>
-				<a href="http://www.univ-paris1.fr/" style="float: right; margin-right: 35px;">
-					<img src="logos/Logo_ufr03.jpg" width="180" height="90" alt="Université Paris_1" title="Logo Paris 1">
-				</a>
-
+		
+				<div class="header_text" style="top: 57px; right: 45px;">
+					Nombre de manifestes :
+				</div>
+				<div class="header_text" style="top: 83px; right: 100px; font-weight: bold;">
+					12.382
+				</div>
+		
+				<div class="header_colored_section"></div>
+		
 				<form role="search" method="get" id="searchform" class="searchform" action="rechercher.php" style="top: 133px;">
 					<div>
 	                    <input name="quicksearch" id="autocomplete" type="text" style="border-radius: 10px;">
@@ -109,26 +112,26 @@ $footer='
 <footer class="site-footer font-adelle">
 		<hr style="width: 80%; margin-bottom: 30px;">
 		<div class="site-footer-logos">
+			<a href="http://www.univ-paris1.fr/" class="footer_logo">
+				<img src="logos/Logo_ufr03.jpg" width="120" height="60" alt="UniversitÃ© Paris_1" title="Logo Paris 1">
+			</a>
 			<a href="http://labexcap.fr/" class="footer_logo">
-				<img src="logos/Logo_Labex_CAP.jpg" width="120" height="60" alt="Labex CAP" title="Logo Labex CAP">
+				<img src="logos/Logo_Labex_CAP.png" width="120" height="60" alt="Labex CAP" title="Logo Labex CAP">
 			</a>
 			<a href="http://www.hesam.eu/" class="footer_logo">
-				<img src="logos/Logo_heSam.jpg" width="90" height="60" alt="Hésam Université" title="Logo Hésam Université">
+				<img src="logos/Logo_heSam.jpg" width="90" height="60" alt="HÃ©sam UniversitÃ©" title="Logo HÃ©sam UniversitÃ©">
 			</a>
 			<a href="http://hicsa.univ-paris1.fr/" class="footer_logo">
 				<img src="logos/Logo_HiCSA.jpg" width="120" height="60" alt="HiCSA" title="Logo HiCSA">
 			</a>
-			<!-- <a href="http://www.univ-paris1.fr/" class="footer_logo">
-				<img src="logos/Logo_ufr03.jpg" width="120" height="60" alt="Université Paris_1" title="Logo Paris 1">
-			</a> -->
 			<a href="http://www.citechaillot.fr/" class="footer_logo">
-				<img src="logos/Logo_cite_architecture_patrimoine.png" width="150" height="60" alt="Cite de l’architecture et du patrimoine" title="Logo de la Cite de l’architecture et du patrimoine">
+				<img src="logos/Logo_cite_architecture_patrimoine.png" width="150" height="60" alt="Cite de lâ€™architecture et du patrimoine" title="Logo de la Cite de lâ€™architecture et du patrimoine">
 			</a>
 			<a href="http://www.ecoledulouvre.fr/" class="footer_logo">
-				<img src="logos/Logo_ecoledulouvre.jpeg" width="200" height="60" alt="Logo École du Louvre" title="Logo École du Louvre">
+				<img src="logos/Logo_ecoledulouvre.jpeg" width="200" height="60" alt="Logo Ecole du Louvre" title="Logo Ecole du Louvre">
 			</a>
 			<a href="http://www.enc-sorbonne.fr/" class="footer_logo">
-				<img src="logos/Logo_enc.jpg" width="120" height="60" alt="École nationale des chartes" title="Logo École nationale des chartes">
+				<img src="logos/Logo_enc.jpg" width="120" height="60" alt="Ecole nationale des chartes" title="Logo Ecole nationale des chartes">
 			</a>
 		</div>
 		<div class="site-footer-licence">

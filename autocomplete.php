@@ -52,7 +52,7 @@
 		<style type="text/css">.font-adelle,.tk-adelle{font-family:"adelle",serif;}</style><link href="template_fichiers/d.css" rel="stylesheet">
 	<link href="template_fichiers/sbi.css" rel="stylesheet" type="text/css" id="sbi-style"></head>
 
-<body class="page page-id-556 page-template page-template-labex-cap-php">
+<body>
 	<div class="page-container font-adelle">
 		<header class="site-header" role="banner">
 			<a class="site-header__img_link" href="http://labexcap.fr/" title="Labex CAP" rel="home"></a>

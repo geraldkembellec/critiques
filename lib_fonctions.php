@@ -57,8 +57,8 @@ function date_fr($date_us){
 function milieu_header(){
 	if(isset($_SESSION['user'])){
 		echo "<div class=\"connection-status connection-status-connecte\">
-				Bonjour ".$_SESSION['label']."&nbsp &nbsp
-				<a href=\"insertion.php\">Saisie</a>
+				Bonjour ".$_SESSION['label']."&nbsp
+				<a href=\"insertion.php\" style=\"color: white;\">Saisie</a>
 			</div>";
 	} else {
 		echo "<div class=\"connection-status\">Non connecté</div>";
@@ -114,16 +114,16 @@ function afficherTousLesOuvragesFormOptionSansAnneeNiDoublon(){
 }
 function afficherTousLesAuteurs(){
 	global $pdo;
-	$sql = "SELECT pk_id_critiqueDart, nom, prenom, anneeNaissance, anneeMort FROM critiquedart order by nom";
-	//print($sql);
+	$sql = "SELECT pk_id_critiqueDart, nom, prenom, anneeNaissance, anneeMort, URL_WP FROM critiquedart order by nom";
 	$req_auteurs=$pdo->query($sql) or die('erreur SQL dans la fonction afficherTousLesAuteurs()'); 
-	//$tab_auteurs[]=mysql_fetch_array($req_auteurs);
-    //$r = mysql_fetch_array($);
-	print('<div style="column-count: 3;">');
+	
+	print('<div class="divAuteurs">');
+	
 	while ($r = $req_auteurs->fetch())
     {
-		print('<p><a href="biblio_auteur.php?critique='.$r['pk_id_critiqueDart'].'">'.$r['prenom'].' '.$r['nom'].' ('.$r['anneeNaissance'].'-'.$r['anneeMort'].')</a></p>');
+		print('<p><a href="'.$r["URL_WP"].'">'.$r['prenom'].' '.$r['nom'].' ('.$r['anneeNaissance'].'-'.$r['anneeMort'].')</a></p>');
     }
+    
 	print('</div>');
 	return($r);
 }
@@ -311,13 +311,14 @@ function afficherCollectifById($id){
 function afficherAuteursParLettre($lettre){
 	// Affiche tous les auteurs dont le nom commence par la lettre passée en argument
 	global $pdo;
-	$sql = "SELECT pk_id_critiqueDart, nom, prenom, anneeNaissance, anneeMort FROM critiquedart WHERE nom LIKE '".$lettre."%' order by nom";
-	//print($sql);
-	$req_auteurs=$pdo->query($sql) or die('erreur SQL dans la fonction afficherAuteursParLettre()');
- 	while ($r = $req_auteurs->fetch())
+	$sql = "SELECT pk_id_critiqueDart, nom, prenom, anneeNaissance, anneeMort, URL_WP FROM critiquedart WHERE nom LIKE '".$lettre."%' order by nom";
+	
+	$req_auteurs=$pdo->query($sql) or die('erreur SQL dans la fonction afficherAuteursParLettre()');    
+    while ($r = $req_auteurs->fetch())
     {
-	print('<p><a href="biblio_auteur.php?critique='.$r['pk_id_critiqueDart'].'">'.$r['prenom'].' '.$r['nom'].' ('.$r['anneeNaissance'].'-'.$r['anneeMort'].')</a></p>');
+    	print('<p><a href="'.$r["URL_WP"].'">'.$r['prenom'].' '.$r['nom'].' ('.$r['anneeNaissance'].'-'.$r['anneeMort'].')</a></p>');
     }
+    
 	return($r);
 }
 function inserer_nouvelle_revue($titre,$ISSN,$periodicite,$couverture){

@@ -78,22 +78,27 @@ function les_introductions_simple($verbose){
 				composition_signature($critique['idSignature'],$critique['typeSignature']);
 			}
 			else afficher_pseudo($critique['idPseudonyme']);
-			echo ", <em>".$critique['titre']." </em>";
+			echo ", <q>".$critique['titre']." </q>";
 			if($critique['complement_titre']!=''){
 				echo ", ".$critique['complement_titre'];
 			}
-			echo ", ".$critique['annee'];
-			echo " in <q>".$critique["titreOuvrage"]."</q>";
-			if($critique["coordonnateur"]!=='' && $critique["coordonnateur"]!=NULL) echo ', '.$critique["coordonnateur"].' (dir)';
-			if($critique['idEditeur']!=''){ 
+			echo ", in ";
+			if($critique["coordonnateur"]!=='' && $critique["coordonnateur"]!=NULL) echo $critique["coordonnateur"].", ";
+			echo "<em>".$critique["titreOuvrage"]."</em>";
+			if($critique["complement_titre_ouvrage"]!='' && $critique["complement_titre_ouvrage"] != NULL){
+				echo " [".$critique["complement_titre_ouvrage"]."]";
+			}
+			if($critique['idEditeur']!=''){
 				$nom_editeur=AfficherNomEditeur($critique['idEditeur']);
 				$ville_editeur=AfficherVilleEditeur($critique['idEditeur']);
 				if($ville_editeur!='')echo ", ".$ville_editeur;
 				if($nom_editeur!='')echo ", ".$nom_editeur;
 			}
-			if($critique['collection']!=''){ 
+			if($critique['collection']!=''){
 				echo ", coll. <q>".$critique['collection']."</q>";
 			}
+			if($critique["annee"]!=='' && $critique["annee"]!=NULL) echo ", ".$critique["annee"];
+			if($critique["pagination"]!=='' && $critique["pagination"]!=NULL && $critique["pagination"]!='n.p.' && $critique["pagination"]!='n.r.') echo ", p. ".$critique["pagination"];
 			echo fin_COinS();
 			echo ".</li>";
 		}
@@ -293,22 +298,27 @@ function les_prefaces($verbose){
 				composition_signature($critique['idSignature'],$critique['typeSignature']);
 			}
 			else afficher_pseudo($critique['idPseudonyme']);
-			echo ", <em>".$critique['titre']." </em>";
+			echo ", <q>".$critique['titre']."</q>";
 			if($critique['complement_titre']!=''){
 				echo ", ".$critique['complement_titre'];
 			}
-			echo ", ".$critique['annee'];
-			echo " in <q>".$critique["titreOuvrage"]."</q>";
-			if($critique["coordonnateur"]!=='' && $critique["coordonnateur"]!=NULL) echo ', '.$critique["coordonnateur"].' (dir)';
-			if($critique['idEditeur']!=''){ 
+			echo ", in ";
+			if($critique["coordonnateur"]!=='' && $critique["coordonnateur"]!=NULL) echo $critique["coordonnateur"].", ";
+			echo "<em>".$critique["titreOuvrage"]."</em>";
+			if($critique["complement_titre_ouvrage"]!='' && $critique["complement_titre_ouvrage"] != NULL){
+				echo " [".$critique["complement_titre_ouvrage"]."]";
+			}
+			if($critique['idEditeur']!=''){
 				$nom_editeur=AfficherNomEditeur($critique['idEditeur']);
 				$ville_editeur=AfficherVilleEditeur($critique['idEditeur']);
 				if($ville_editeur!='')echo ", ".$ville_editeur;
 				if($nom_editeur!='')echo ", ".$nom_editeur;
 			}
-			if($critique['collection']!=''){ 
+			if($critique['collection']!=''){
 				echo ", coll. <q>".$critique['collection']."</q>";
 			}
+			if($critique["annee"]!=='' && $critique["annee"]!=NULL) echo ", ".$critique["annee"];
+			if($critique["pagination"]!=='' && $critique["pagination"]!=NULL && $critique["pagination"]!='n.p.' && $critique["pagination"]!='n.r.') echo ", p. ".$critique["pagination"];
 			echo fin_COinS();
 			echo ".</li>";
 		}
@@ -373,7 +383,7 @@ function les_chapitres_simple($verbose){
 						$critique["collection"]=$enr['collection'];
 						$critique["titreOuvrage"]=$enr['ouvrageTitre'];
 						$critique["coordonnateur"]=$enr['coordonnateur'];
-			
+
 			$nom_editeur=AfficherNomEditeur($critique["idEditeur"]);
 			$ville_editeur=AfficherVilleEditeur($critique["idEditeur"]);
 			///
@@ -383,22 +393,27 @@ function les_chapitres_simple($verbose){
 				composition_signature($critique['idSignature'],$critique['typeSignature']);
 			}
 			else afficher_pseudo($critique['idPseudonyme']);
-			echo ", <em>".$critique['titre']." </em>";
+			echo ", <q>".$critique['titre']."</q>";
 			if($critique['complement_titre']!=''){
 				echo ", ".$critique['complement_titre'];
 			}
-			echo ", ".$critique['annee'];
-			echo " in <q>".$critique["titreOuvrage"]."</q>";
-			if($critique["coordonnateur"]!=='' && $critique["coordonnateur"]!=NULL) echo ', '.$critique["coordonnateur"].' (dir)';
-			if($critique['idEditeur']!=''){ 
+			echo ", in ";
+			if($critique["coordonnateur"]!=='' && $critique["coordonnateur"]!=NULL) echo $critique["coordonnateur"].", ";
+			echo "<em>".$critique["titreOuvrage"]."</em>";
+			if($critique["complement_titre_ouvrage"]!='' && $critique["complement_titre_ouvrage"] != NULL){
+				echo " [".$critique["complement_titre_ouvrage"]."]";
+			}
+			if($critique['idEditeur']!=''){
 				$nom_editeur=AfficherNomEditeur($critique['idEditeur']);
 				$ville_editeur=AfficherVilleEditeur($critique['idEditeur']);
 				if($ville_editeur!='')echo ", ".$ville_editeur;
 				if($nom_editeur!='')echo ", ".$nom_editeur;
 			}
-			if($critique['collection']!=''){ 
+			if($critique['collection']!=''){
 				echo ", coll. <q>".$critique['collection']."</q>";
 			}
+			if($critique["annee"]!=='' && $critique["annee"]!=NULL) echo ", ".$critique["annee"];
+			if($critique["pagination"]!=='' && $critique["pagination"]!=NULL && $critique["pagination"]!='n.p.' && $critique["pagination"]!='n.r.') echo ", p. ".$critique["pagination"];
 			echo fin_COinS();
 			echo ".</li>";
 		}
@@ -474,7 +489,6 @@ function les_monographies($verbose){
 			if($critique['complement_titre']!=''){
 				echo ", [<span itemprop='alternativeHeadline'>".$critique['complement_titre']."</span>]";
 			}
-			echo ", <span itemprop='datePublished'>".$critique['annee']."</span>";
 			if($critique['idEditeur']!=''){ 
 				$nom_editeur=AfficherNomEditeur($critique['idEditeur']);
 				$ville_editeur=AfficherVilleEditeur($critique['idEditeur']);
@@ -488,6 +502,8 @@ function les_monographies($verbose){
 				echo "</q>";
 				echo "</span>";
 			}
+			echo ", <span itemprop='datePublished'>".$critique['annee']."</span>";
+			
 			echo fin_COinS();
 			echo ".</li>";
 		}
@@ -632,23 +648,23 @@ function les_articles_simple($verbose){
 	   }
 	   echo ".</p>";
 	   echo "<p id='navigation' align ='right'>
-		   <a href='#articles' title='Aller directement aux articles' style='color: #1f398f;'>Articles</a>,
-		   <a href='#chapitres' title='Aller directement aux chapitres' style='color: #1f398f;'>chapitres</a>,
-		   <a href='#monographies' title='Aller directement aux monographies' style='color: #1f398f;'>ouvrages</a>,
-		   <a href='#prefaces' title='Aller directement aux préfaces' style='color: #1f398f;'>préfaces</a>,
-		   <a href='#postfaces' title='Aller directement aux postfaces' style='color: #1f398f;'>postfaces</a>,
-		   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages' style='color: #1f398f;'>coordinations</a>,
-		   <a href='#introductions' title='Aller directement aux introductions' style='color: #1f398f;'>introductions</a>
+			<a href='#monographies' title='Aller directement aux monographies' style='color: #1f398f;'>Ouvrages</a>,
+			<a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages' style='color: #1f398f;'>coordinations</a>,
+			<a href='#chapitres' title='Aller directement aux chapitres' style='color: #1f398f;'>collaborations</a>,
+	   		<a href='#introductions' title='Aller directement aux introductions' style='color: #1f398f;'>introductions</a>,
+			<a href='#prefaces' title='Aller directement aux préfaces' style='color: #1f398f;'>préfaces</a>,
+			<a href='#postfaces' title='Aller directement aux postfaces' style='color: #1f398f;'>postfaces</a>,
+			<a href='#articles' title='Aller directement aux articles' style='color: #1f398f;'>articles</a>
 	   </p>";
 	   
 	   // Penser à tester les alias
 	   les_monographies(FALSE);
+	   les_coordinations_simple(FALSE);
 	   les_chapitres_simple(FALSE);
-	   les_articles_simple(FALSE);
+	   les_introductions_simple(FALSE);
 	   les_prefaces(FALSE);
 	   les_postfaces(FALSE);
-	   les_coordinations_simple(FALSE);
-	   les_introductions_simple(FALSE);
+	   les_articles_simple(FALSE);
    }
    else{
 	   echo "<h2 id='ancre' class='std__title'>
@@ -658,8 +674,8 @@ function les_articles_simple($verbose){
 	   
 	//break;
 	//les_articles();
-	echo "<p align='right'>Total hits: $totalHits</p>";
-	echo "<p align='right'><a href='rechercher.php'>Recommencer la recherche.</a>  <a href='#navigation' title='remonter'>&uarr;</a></p>";
+	echo "<p align='right'><b>Nombre de références : $totalHits</b></p>";
+	echo "<p align='right'><b><a href='rechercher.php' style='color: #1f398f'>Recommencer la recherche.</a><a href='#navigation' title='remonter'>&uarr;</a></b></p>";
 	//if (get_magic_quotes_gpc()) {echo "activé";}
 	//else {echo "desactivé";}
 	echo $fin_article;

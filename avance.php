@@ -451,7 +451,6 @@ function les_prefaces($verbose){
 			if($critique['complement_titre']!=''){
 				echo ", ".$critique['complement_titre'];
 			}
-			//echo ", ".$critique['annee'];
 			echo ", in ";
 			if($critique["coordonnateur"]!=='' && $critique["coordonnateur"]!=NULL) echo $critique["coordonnateur"].", ";
 			echo "<em>".$critique["titreOuvrage"]."</em>";
@@ -709,7 +708,6 @@ function les_monographies($verbose){
 			if($critique['complement_titre']!=''){
 				echo ", [<span itemprop='alternativeHeadline'>".$critique['complement_titre']."</span>]";
 			}
-			echo ", <span itemprop='datePublished'>".$critique['annee']."</span>";
 			if($critique['idEditeur']!=''){ 
 				$nom_editeur=AfficherNomEditeur($critique['idEditeur']);
 				$ville_editeur=AfficherVilleEditeur($critique['idEditeur']);
@@ -723,6 +721,8 @@ function les_monographies($verbose){
 				echo "</q>";
 				echo "</span>";
 			}
+			echo ", <span itemprop='datePublished'>".$critique['annee']."</span>";
+			
 			echo fin_COinS();
 			echo ".</li>";
 		}
@@ -942,13 +942,13 @@ switch ($_GET['typeCritique']) {
        //echo 'générique';
 	   if($_GET['auteur']!='' || $_GET['anneeEditionMax']!='' || $_GET['anneeEditionMin']!='' || $_GET['Titre_SousTitre']!='' || $_GET['typeSignature']!='' || $_GET['revue']!=''){
 		   echo "<p id='navigation' align ='right'>
-		   <a href='#articles' title='Aller directement aux articles' style='color: #1f398f;'>Articles</a>, 
-		   <a href='#chapitres' title='Aller directement aux chapitres' style='color: #1f398f;'>chapitres</a>,
-		   <a href='#monographies' title='Aller directement aux monographies' style='color: #1f398f;'>ouvrages</a>,
-		   <a href='#prefaces' title='Aller directement aux préfaces' style='color: #1f398f;'>préfaces</a>,
-		   <a href='#postfaces' title='Aller directement aux postfaces' style='color: #1f398f;'>postfaces</a>,
-		   <a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages' style='color: #1f398f;'>coordinations</a>,
-		   <a href='#introductions' title='Aller directement aux introductions' style='color: #1f398f;'>introductions</a>
+			<a href='#monographies' title='Aller directement aux monographies' style='color: #1f398f;'>Ouvrages</a>,
+			<a href='#coordinations' title='Aller directement aux coordinations d&rsquo;ouvrages' style='color: #1f398f;'>coordinations</a>,
+			<a href='#chapitres' title='Aller directement aux chapitres' style='color: #1f398f;'>collaborations</a>,
+	   		<a href='#introductions' title='Aller directement aux introductions' style='color: #1f398f;'>introductions</a>,
+			<a href='#prefaces' title='Aller directement aux préfaces' style='color: #1f398f;'>préfaces</a>,
+			<a href='#postfaces' title='Aller directement aux postfaces' style='color: #1f398f;'>postfaces</a>,
+			<a href='#articles' title='Aller directement aux articles' style='color: #1f398f;'>articles</a>
 		   </p>";
 		   //
 			if($_GET['Titre_SousTitre']!='' && $_GET['choix']=='choix_sous_titre_et_titre'){
@@ -978,12 +978,12 @@ switch ($_GET['typeCritique']) {
 			}
 			
 			les_monographies(FALSE);
+			les_coordinations(FALSE);
 			les_chapitres(FALSE);
-			les_articles(FALSE);
+			les_introductions(FALSE);
 			les_prefaces(FALSE);
 			les_postfaces(FALSE);
-			les_coordinations(FALSE);
-			les_introductions(FALSE);
+			les_articles(FALSE);
 		} else {
 			echo "<p>Veuillez recommencer en spécifiant davantage votre recherche.</p>";
 		}
@@ -991,8 +991,8 @@ switch ($_GET['typeCritique']) {
 	break;
 }
 
-echo "<p align='right'>Total hits: $totalHits</p>";
-echo "<p align='right'><a href='rechercher.php?opt=avance'>Recommencer la recherche.</a>  <a href='#navigation' title='remonter'>&uarr;</a></p>";
+echo "<p align='right'><b>Nombre de références : $totalHits</b></p>";
+echo "<p align='right'><b><a href='rechercher.php?opt=avance' style='color: #1f398f'>Recommencer la recherche.</a><a href='#navigation' title='remonter'>&uarr;</a></b></p>";
 //if (get_magic_quotes_gpc()) {echo "activé";}
 //else {echo "desactivé";}
 echo $fin_article;

@@ -41,8 +41,8 @@
         <header class="page-title page-title-bg4">
             <h1>Bases de données Critiques d'Art - <em>Saisie des critiques</em></h1>
         </header>
+         <h1>Espace de saisie</h1>
            <div class="container">
-            <h1>Espace de saisie</h1>
             <img src="images/loading_spinner.gif" />
             <p align="center">
             	<mark><blink>Attention</blink> : ne <strong>RECHARGEZ SURTOUT PAS</strong> la page et ne <strong>REVENEZ PAS</strong> en arrière pour éviter une erreur d'insertion dans la base (vous allez être redirigé(e) pour vérification dans quelques secondes)</mark>.

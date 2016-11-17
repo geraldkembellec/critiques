@@ -98,7 +98,7 @@
 	     		</p>
 	     </fieldset>
 	  	 <fieldset class="rechercher_fieldset">
-	       <legend class="rechercher_legend">Aide à la recherche d'ouvrage ou de revue</legend>
+	       <legend class="rechercher_legend">Recherche d'ouvrage ou de revue</legend>
 	        <p>
 	        <label class="control-label col-sm-8" style="display: block; width: 450px;float: left;">Type de texte<br /></label>
 	        <select name="typeCritique" onChange="avance();" class="rechercher_comboBox"> 

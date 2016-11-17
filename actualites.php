@@ -39,6 +39,7 @@
 			Non discriminant, puisqu’il ne prévoit pas de typologie ou de classement autre que le support de diffusion du texte (article, ouvrage ou chapitre d’ouvrage), interdisciplinaire, il met de côté l’appréciation de la valeur critique du texte - éminemment subjective - au profit d’une vision d’ensemble de la production littéraire des auteurs concernés, quel que soit le champ artistique sur lequel leur regard s’est porté (photographie, cinéma, beaux-arts, architecture, etc.). 
 			Il permet ainsi une approche renouvelée à la fois de la production critique de chaque auteur - aucun texte ne prenant le pas sur un autre - et sur la critique d’art en général dont le champ se voit élargi à une grande diversité à la fois d’objets et de supports. Ce sont ces renouvellements, qui sont également des questionnements théoriques, que le colloque se propose d’aborder.
 		</p>
+		<a class="telecharger_actualites" href="Appel_Critiques_Art_Mai_2017.pdf" target="_blank">Télécharger l’appel à communication du colloque<img src='images/pdf.jpg' height='20' width='20' alt='logo PDF'></a>
 	</div>
 </div>
 
@@ -51,6 +52,7 @@
 			Une première journée d’études a été organisée le 25 juin 2015 ; elle proposait un état des lieux de la recherche sur la critique durant la IIIe République ainsi qu’une réflexion sur les implications d’un tel site à la fois interdisciplinaire et monographique ; 
 			l’accent a été mis sur la critique des arts dits mineurs (photographie, cinéma, arts décoratifs), et sur la diversité nécessaire des approches scientifiques de cet objet, à la croisée des études littéraires, historiques et artistiques.
 		</p>
+		<a class="telecharger_actualites" href="Plaquette_JE_Juin_2015.pdf" target="_blank">Télécharger la plaquette de la journée d’études<img src='images/pdf.jpg' height='20' width='20' alt='logo PDF'></a>
 	</div>
 </div>
 
